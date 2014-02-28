@@ -2,6 +2,8 @@ package UI
 {
 	import flash.display.DisplayObjectContainer;
 	import flash.text.TextField;
+	import flash.text.TextFieldAutoSize;
+	import flash.text.TextFormat;
 	
 	/**
 	 * ...
@@ -12,7 +14,7 @@ package UI
 		protected var _text:String = "";
 		protected var _tf:TextField;
 		
-		public function Label(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0, text:String = ""):void
+		public function Label(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0, text:String = "")
 		{
 			
 			_text = text;
@@ -21,18 +23,24 @@ package UI
 		
 		override protected function init():void
 		{
-			mouseChildren = false;
-			mouseEnabled = false;
+			var textFormat:TextFormat = new TextFormat(Style.TEXT_FONT, Style.TEXT_SIZE);
+			
 			_tf = new TextField();
 			_tf.text = _text;
+			_tf.defaultTextFormat = textFormat;
 			_tf.backgroundColor = Style.TEXT_BGCOLOR;
 			_tf.textColor = Style.TEXT_COLOR;
+			_tf.autoSize = TextFieldAutoSize.LEFT;
+			
+			mouseChildren = false;
+			mouseEnabled = false;
+			
 			addChild(_tf);
 		}
 		
 		public function set text(value:String):void 
 		{
-			_text = value;
+			_tf.text = value;
 		}
 		
 		public function get textFiled():TextField 

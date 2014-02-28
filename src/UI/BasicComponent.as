@@ -7,10 +7,12 @@ package UI
 	 * ...
 	 * @author wq
 	 */
-	public class BasicComponent extends Sprite 
+	 public class BasicComponent extends Sprite 
 	{
+		[Embed(source = "../../source/ui.swf")]
+		public var intiveface:Class;
 		
-		public function BasicComponent(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0):void
+		public function BasicComponent(parent:DisplayObjectContainer = null, xpos:Number = 0, ypos:Number = 0)
 		{
 			init();
 			move(xpos, ypos);
@@ -32,6 +34,16 @@ package UI
 		}
 		
 		
+		protected function setSize(w:Number, h:Number):void
+		{
+			width = Math.round(w);
+			height = Math.round(h);
+		}
+		
+		protected function isBorder(bool:Boolean):void
+		{
+			
+		}
 		
 	}
 

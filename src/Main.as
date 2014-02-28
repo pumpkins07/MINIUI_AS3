@@ -5,6 +5,7 @@ package
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
+	import UI.Button;
 	import UI.Label;
 	
 	/**
@@ -29,7 +30,13 @@ package
 			//addChild(customDisplayObject);
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
-			var label:Label = new Label(this, 10, 10, "---------------");
+			//var label:Label = new Label(this, 10, 10, "---------------");
+			var button:Button = new Button(this, 10, 10, "START");
+			var button2:Button = new Button(this, 10, 50, "END");
+			
+
+			
+			
 			//addEventListener(ClockEvent.TEST_CASE, onTestCase);
 			//dispatchEvent(new ClockEvent(ClockEvent.TEST_CASE));
 			//clockEvent = new ClockEvent("sss");
